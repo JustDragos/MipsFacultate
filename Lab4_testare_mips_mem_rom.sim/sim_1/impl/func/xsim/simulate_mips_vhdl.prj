@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"simulate_mips_func_impl.vhd" \
+"../../../../../Lab4_testare_mips_mem_rom.srcs/sim_1/new/simulate_mips.vhd" \
+
+# Do not sort compile order
+nosort

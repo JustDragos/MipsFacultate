@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Mon Apr 28 22:09:14 2025
+# Process ID: 21068
+# Current directory: D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.runs/synth_1
+# Command line: vivado.exe -log tested_mips.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tested_mips.tcl
+# Log file: D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.runs/synth_1/tested_mips.vds
+# Journal file: D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.runs/synth_1\vivado.jou
+# Running On: Dragos, OS: Windows, CPU Frequency: 2496 MHz, CPU Physical cores: 10, Host memory: 16837 MB
+#-----------------------------------------------------------
+source tested_mips.tcl -notrace

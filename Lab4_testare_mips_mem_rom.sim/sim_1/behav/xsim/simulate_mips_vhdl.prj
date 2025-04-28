@@ -1,0 +1,14 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sources_1/new/ExecutionElem.vhd" \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sources_1/new/IFetch.vhd" \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sources_1/new/MEM.vhd" \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sources_1/new/MPG.vhd" \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sources_1/new/SSD.vhd" \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sources_1/new/UnitControl.vhd" \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sources_1/new/instructionDecodifier.vhd" \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sources_1/new/tested_mips.vhd" \
+"../../../../Lab4_testare_mips_mem_rom.srcs/sim_1/new/simulate_mips.vhd" \
+
+# Do not sort compile order
+nosort

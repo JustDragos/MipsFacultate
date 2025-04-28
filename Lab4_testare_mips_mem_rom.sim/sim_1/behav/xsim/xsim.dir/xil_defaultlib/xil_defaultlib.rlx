@@ -1,0 +1,13 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sim_1/new/simulate_mips.vhd,1744831567,vhdl,,,,simulate_mips,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/ExecutionElem.vhd,1744829559,vhdl,,,,executionelem,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/IFetch.vhd,1744782678,vhdl,,,,ifetch,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/MEM.vhd,1744747882,vhdl,,,,mem,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/MPG.vhd,1742973553,vhdl,,,,mpg,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/SSD.vhd,1742975065,vhdl,,,,ssd,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/UnitControl.vhd,1744748028,vhdl,,,,unitcontrol,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/instructionDecodifier.vhd,1744784454,vhdl,,,,instructiondecodifier,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/tested_mips.vhd,1744831516,vhdl,,,,tested_mips,,,,,,,,
