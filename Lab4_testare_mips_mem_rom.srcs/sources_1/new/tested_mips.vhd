@@ -208,7 +208,7 @@ begin
         jmp_address => jmp_address,
         PCSrc => pc_src,
         rst => BT1,
-        en => '1',
+        en => mips_en,
         clk => clk,
         pc_plus_4 => pc_plus_4,
         instr => instr
@@ -245,7 +245,7 @@ begin
         ext_imm => ext_imm,
         func => func,
         sa => sa,
-        en => '1'
+        en => mips_en
     ); -- here we will put the mips_en
     
     EX: ExecutionElem port map(
@@ -266,7 +266,7 @@ begin
     MEM_Elem: MEM port map(
         MemWrite => mem_write,
         ALUResIn => alu_res,
-        en => '1',
+        en => mips_en,
         rd2 => rd2,
         clk => clk,
         ALUResOut => alu_res_out,
@@ -306,8 +306,8 @@ begin
     
     end process;
     -- after debugging
-    --led <= "00000" & alu_op(2 downto 0) & reg_dst & ext_op & alu_src & branch & br_gtz & mem_write & mem_to_reg & reg_write;
-    led <= instr(4 downto 0) & rd1(10 downto 0);
+    led <= "00000" & alu_op(2 downto 0) & reg_dst & ext_op & alu_src & branch & br_gtz & mem_write & mem_to_reg & reg_write;
+    
     
     
 end Behavioral;

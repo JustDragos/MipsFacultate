@@ -56,10 +56,10 @@ signal d_from_pc: std_logic_vector(31 downto 0) := X"00000000";
    
 type rom_type is array(0 to 31) of std_logic_vector(31 downto 0);
 signal matr: rom_type := (
-    B"000000_00011_00011_00011_00000_100010", -- sub $3, $3, $3    -- 0x00639802 
+    B"000000_00011_00011_00011_00000_100010", -- sub $3, $3, $3    -- 0x00631822
     -- creez un 0
-    B"000000_00001_00001_00001_00000_100010", -- sub $1, $1, $1    -- 0x00208802 
-    B"000000_00010_00010_00010_00000_100010", -- sub $2, $2, $2    -- 0x00429002
+    B"000000_00001_00001_00001_00000_100010", -- sub $1, $1, $1    -- 0x00210822
+    B"000000_00010_00010_00010_00000_100010", -- sub $2, $2, $2    -- 0x00421022
     
     B"001000_00001_00001_0000000000001001", -- addi $1, $1, 9     -- 0x20210009
      -- numarul initial
@@ -67,18 +67,18 @@ signal matr: rom_type := (
     
     B"001000_00011_00011_0000000000000001", -- addi $3, $3, 1     -- 0x20630001 -- cel mai mare numar putere 
     -- a lui 2 din numarul initial
-    B"101011_00000_00001_0000001010001100", -- sw $1, 652($0)     -- 0xAC0128C  -- il stochez la 652 (oriunde)
-    B"000000_00000_00001_00001_00001_000000", -- sll $1, $1, 1   -- 0x00031840 -- *2
-    B"000000_00000_00011_00011_00001_000010", -- srl $3, $3, $   -- 0x00010842 -- /2 numarul initial aicea ii problema, shiftez de prea multe ori
+    B"101011_00000_00001_0000001010001100", -- sw $1, 652($0)     -- 0x0AC0128C  -- il stochez la 652 (oriunde)
+    B"000000_00000_00001_00001_00001_000000", -- sll $1, $1, 1   -- 0x00010840 -- *2
+    B"000000_00000_00011_00011_00001_000010", -- srl $3, $3, 1   -- 0x00031842 -- /2 numarul initial aicea ii problema, shiftez de prea multe ori
     B"000111_00001_00000_1111111111111101", -- bgtz $1, -3        -- 0x1C20FFFD -- continui pana devine 0
-    B"000000_00000_00011_00011_00001_000000", -- sll $3, $3, $2   -- 0x00031882 -- mereu e cu 1 mai mult
+    B"000000_00000_00011_00011_00001_000000", -- sll $3, $3, $2   -- 0x00031840 -- mereu e cu 1 mai mult
     B"100011_00000_00001_0000001010001100", -- lw $1, 652($0)     -- 0x8C0128C -- iau iarasi numarul initial
-    B"000000_00011_00001_00001_00000_100010", -- sub $1, $3, $1   -- 0x00610802 -- vad daca numarul initial e mai 
+    B"000000_00011_00001_00001_00000_100010", -- sub $1, $3, $1   -- 0x00610822 -- vad daca numarul initial e mai 
     --mic decat ce am gasit eu (cazul 0)
      
-    B"000111_00001_00000_0000000000000001", -- bgtz $1, 1         -- 0x1C200001 -- sar peste cazul 0, e tratat deja
-    B"101011_00000_00011_0000001010001100", -- sw $3, 652($0)     -- 0xAC0328C -- pun cel mai mare numar putere
-    B"000000_00011_00011_00011_00000_100010", -- sub $3, $3, $3    -- 0x00639802 -- sa testez ce imi afiseaza $3
+    B"000111_00001_00000_0000000000000001", -- bgtz $1, 1         -- 0x1C200001-- sar peste cazul 0, e tratat deja
+    B"101011_00000_00011_0000001010001100", -- sw $3, 652($0)     -- 0xAC03028C -- pun cel mai mare numar putere
+    B"000000_00011_00011_00011_00000_100010", -- sub $3, $3, $3    -- 0x00631822 -- sa testez ce imi afiseaza $3
     -- a lui 2 in memorie la 652
     others => X"00000000"
     
