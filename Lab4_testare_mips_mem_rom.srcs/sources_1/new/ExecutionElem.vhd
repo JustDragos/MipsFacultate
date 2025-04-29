@@ -73,6 +73,7 @@ begin
                         when "000000" => alu_ctrl <= "101";
                         is_left <= '1';
                         when "000010" => alu_ctrl <= "101";
+                        is_left <= '0';
                         when "100100" => alu_ctrl <= "100";
                         when "100110" => alu_ctrl <= "110";
                         when "000100" => alu_ctrl <= "101";
@@ -95,7 +96,7 @@ begin
                 when "011" => rez <= rd1 or b_for_alu;
                 when "100" => rez <= rd1 and b_for_alu;
                 when "101" => 
-                    if is_left = '1' then
+                    if is_left = '0' then
                         if is_var = '0' then
                             rez <= to_stdlogicvector(to_bitvector(b_for_alu) sll conv_integer (sa));
                         else

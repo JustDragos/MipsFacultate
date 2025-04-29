@@ -77,6 +77,7 @@ begin
                 ext_op <= '1';
                 alu_src <= '1';
                 reg_write <= '1';
+                
              -- addi
                 
                 

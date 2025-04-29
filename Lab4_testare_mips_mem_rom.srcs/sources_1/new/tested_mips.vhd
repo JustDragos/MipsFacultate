@@ -182,12 +182,12 @@ signal ext_imm: std_logic_vector(31 downto 0) := X"00000000";
 signal func: std_logic_vector(5 downto 0) := "000000";
 signal sa: std_logic_vector(4 downto 0) := "00000";
 
-
+signal alu_from_b_must_be_removed: std_logic_vector (31 downto 0) := X"00000000";
 
 
 begin
    
-    
+    alu_from_b_must_be_removed <= (rd2  when alu_src = '0' else ext_imm);
     sd: SSD port map(
         clk => clk,
         digits => to_ssd,
@@ -275,7 +275,7 @@ begin
     );
    
     
-  wd <= alu_res_out when mem_to_reg = '1' else mem_data; 
+  wd <= alu_res_out when mem_to_reg = '0' else mem_data; 
   pc_src <= (br_gtz and gtz) or (branch and zero);
 
   process(sw)
@@ -307,7 +307,7 @@ begin
     end process;
     -- after debugging
     --led <= "00000" & alu_op(2 downto 0) & reg_dst & ext_op & alu_src & branch & br_gtz & mem_write & mem_to_reg & reg_write;
-    led <= instr(4 downto 0) & instr(25 downto 21) & "000000";
-    --to_ssd <= actual_info when SW7 = '0' else pc_plus_4;
+    led <= instr(4 downto 0) & rd1(10 downto 0);
+    
     
 end Behavioral;

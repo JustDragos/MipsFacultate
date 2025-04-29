@@ -1,7 +1,7 @@
-Running: xsim.dir/simulate_mips_func_synth/xsimk.exe -simmode gui -wdb simulate_mips_func_synth.wdb -simrunnum 0 -socket 59649
+Running: xsim.dir/simulate_mips_func_synth/xsimk.exe -simmode gui -wdb simulate_mips_func_synth.wdb -simrunnum 0 -socket 55515
 Design successfully loaded
-Design Loading Memory Usage: 11896 KB (Peak: 11896 KB)
-Design Loading CPU Usage: 46 ms
+Design Loading Memory Usage: 11792 KB (Peak: 11792 KB)
+Design Loading CPU Usage: 15 ms
 Simulation completed
-Simulation Memory Usage: 14060 KB (Peak: 14060 KB)
-Simulation CPU Usage: 93 ms
+Simulation Memory Usage: 13928 KB (Peak: 13928 KB)
+Simulation CPU Usage: 92 ms

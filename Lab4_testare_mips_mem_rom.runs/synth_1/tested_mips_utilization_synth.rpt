@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Mon Apr 28 22:09:51 2025
+| Date         : Tue Apr 29 11:26:01 2025
 | Host         : Dragos running 64-bit major release  (build 9200)
 | Command      : report_utilization -file tested_mips_utilization_synth.rpt -pb tested_mips_utilization_synth.pb
 | Design       : tested_mips
@@ -31,15 +31,15 @@ Table of Contents
 +----------------------------+------+-------+------------+-----------+-------+
 |          Site Type         | Used | Fixed | Prohibited | Available | Util% |
 +----------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*                |  743 |     0 |          0 |     63400 |  1.17 |
-|   LUT as Logic             |  663 |     0 |          0 |     63400 |  1.05 |
+| Slice LUTs*                |  701 |     0 |          0 |     63400 |  1.11 |
+|   LUT as Logic             |  621 |     0 |          0 |     63400 |  0.98 |
 |   LUT as Memory            |   80 |     0 |          0 |     19000 |  0.42 |
 |     LUT as Distributed RAM |   80 |     0 |            |           |       |
 |     LUT as Shift Register  |    0 |     0 |            |           |       |
 | Slice Registers            |   49 |     0 |          0 |    126800 |  0.04 |
 |   Register as Flip Flop    |   47 |     0 |          0 |    126800 |  0.04 |
 |   Register as Latch        |    2 |     0 |          0 |    126800 | <0.01 |
-| F7 Muxes                   |   66 |     0 |          0 |     31700 |  0.21 |
+| F7 Muxes                   |   82 |     0 |          0 |     31700 |  0.26 |
 | F8 Muxes                   |   16 |     0 |          0 |     15850 |  0.10 |
 +----------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -150,13 +150,13 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  306 |                 LUT |
-| LUT5     |  190 |                 LUT |
-| LUT4     |  117 |                 LUT |
+| LUT6     |  272 |                 LUT |
+| LUT5     |  187 |                 LUT |
+| LUT4     |  103 |                 LUT |
+| MUXF7    |   82 |               MuxFx |
 | RAMD32   |   68 |  Distributed Memory |
-| MUXF7    |   66 |               MuxFx |
-| LUT3     |   54 |                 LUT |
-| LUT2     |   46 |                 LUT |
+| LUT3     |   68 |                 LUT |
+| LUT2     |   42 |                 LUT |
 | CARRY4   |   41 |          CarryLogic |
 | RAMS64E  |   32 |  Distributed Memory |
 | OBUF     |   31 |                  IO |

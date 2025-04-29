@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="simulate_mips_func_impl.wdb" id="1">
+      <db_ref path="simulate_mips_func_synth.wdb" id="1">
          <top_modules>
             <top_module name="simulate_mips" />
          </top_modules>
@@ -11,14 +11,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="23.576 ns"></ZoomEndTime>
-      <Cursor1Time time="0.000 ns"></Cursor1Time>
+      <ZoomEndTime time="334.621 ns"></ZoomEndTime>
+      <Cursor1Time time="80.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="149"></NameColumnWidth>
-      <ValueColumnWidth column_width="137"></ValueColumnWidth>
+      <NameColumnWidth column_width="73"></NameColumnWidth>
+      <ValueColumnWidth column_width="72"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="14" />
+   <WVObjectSize size="7" />
    <wvobject fp_name="/simulate_mips/BT1" type="logic">
       <obj_property name="ElementShortName">BT1</obj_property>
       <obj_property name="ObjectShortName">BT1</obj_property>
@@ -47,33 +47,6 @@
    <wvobject fp_name="/simulate_mips/helping_signals" type="array">
       <obj_property name="ElementShortName">helping_signals[10:0]</obj_property>
       <obj_property name="ObjectShortName">helping_signals[10:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simulate_mips/reg_write" type="logic">
-      <obj_property name="ElementShortName">reg_write</obj_property>
-      <obj_property name="ObjectShortName">reg_write</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simulate_mips/mem_to_reg" type="logic">
-      <obj_property name="ElementShortName">mem_to_reg</obj_property>
-      <obj_property name="ObjectShortName">mem_to_reg</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simulate_mips/mem_write" type="logic">
-      <obj_property name="ElementShortName">mem_write</obj_property>
-      <obj_property name="ObjectShortName">mem_write</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simulate_mips/br_gtz" type="logic">
-      <obj_property name="ElementShortName">br_gtz</obj_property>
-      <obj_property name="ObjectShortName">br_gtz</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simulate_mips/branch" type="logic">
-      <obj_property name="ElementShortName">branch</obj_property>
-      <obj_property name="ObjectShortName">branch</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simulate_mips/alu_src" type="logic">
-      <obj_property name="ElementShortName">alu_src</obj_property>
-      <obj_property name="ObjectShortName">alu_src</obj_property>
-   </wvobject>
-   <wvobject fp_name="/simulate_mips/reg_dst" type="logic">
-      <obj_property name="ElementShortName">reg_dst</obj_property>
-      <obj_property name="ObjectShortName">reg_dst</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>

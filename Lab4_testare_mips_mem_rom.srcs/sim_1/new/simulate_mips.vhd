@@ -41,15 +41,7 @@ end component;
     signal instr: std_logic_vector(4 downto 0) := "00000";
     signal helping_signals: std_logic_vector(10 downto 0) := "00000000000";
     -- for debugging
-    signal reg_write: std_logic := '0';
-    signal mem_to_reg: std_logic := '0';
-    signal mem_write: std_logic := '0';
-    signal br_gtz: std_logic := '0';
-    signal branch: std_logic := '0';
-    signal alu_src: std_logic := '0';
-    --signal ext_op: std_logic := '0';
-    signal reg_dst: std_logic := '0';
-    signal gtz: std_logic := '0';
+    
     
 begin
 
@@ -80,14 +72,7 @@ begin
     end process;
     -- Stimulus process
     helping_signals <= led(10 downto 0);
-    reg_write <= led(0);
-     mem_to_reg <= led(1);
-     mem_write <= led(2);
-     br_gtz <= led(3);
-     branch <= led(4);
-     alu_src <= led(5);
-     gtz <= led(6);
-     reg_dst <= led(7);
+   -- debug things
      
     instr <= led(15 downto 11);
     -- Connect the enable pulse to BT0 (button input)

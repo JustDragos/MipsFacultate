@@ -2,8 +2,6 @@ INFO: [VRFC 10-163] Analyzing VHDL file "D:/Facultate/An_II/Semestrul II/AC/Lab4
 INFO: [VRFC 10-3107] analyzing entity 'ExecutionElem'
 INFO: [VRFC 10-3107] analyzing entity 'IFetch'
 INFO: [VRFC 10-3107] analyzing entity 'MEM'
-INFO: [VRFC 10-3107] analyzing entity 'MPG'
 INFO: [VRFC 10-3107] analyzing entity 'SSD'
-INFO: [VRFC 10-3107] analyzing entity 'UnitControl'
 INFO: [VRFC 10-3107] analyzing entity 'instructionDecodifier'
 INFO: [VRFC 10-3107] analyzing entity 'tested_mips'

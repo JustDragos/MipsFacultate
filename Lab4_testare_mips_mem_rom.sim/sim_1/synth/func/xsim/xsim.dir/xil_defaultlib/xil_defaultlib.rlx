@@ -2,5 +2,5 @@
 2020.2
 Oct 13 2023
 20:47:58
-D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.sim/sim_1/synth/func/xsim/simulate_mips_func_synth.vhd,1745856669,vhdl,,,,executionelem;ifetch;instructiondecodifier;mem;mpg;ssd;tested_mips;unitcontrol,,,,,,,,
-D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sim_1/new/simulate_mips.vhd,1745844812,vhdl,,,,simulate_mips,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.sim/sim_1/synth/func/xsim/simulate_mips_func_synth.vhd,1745914350,vhdl,,,,executionelem;ifetch;instructiondecodifier;mem;ssd;tested_mips,,,,,,,,
+D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sim_1/new/simulate_mips.vhd,1745870938,vhdl,,,,simulate_mips,,,,,,,,

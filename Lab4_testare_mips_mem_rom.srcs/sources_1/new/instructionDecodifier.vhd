@@ -53,7 +53,10 @@ end instructionDecodifier;
 
 architecture Behavioral of instructionDecodifier is
     type mem is array(0 to 31) of std_logic_vector(31 downto 0);
-    signal mem_rom : mem := (others => X"00000000");
+    signal mem_rom : mem := (
+    1 => X"00000009",
+    
+    others => X"00000000");
     signal RA1, RA2, WA : std_logic_vector(4 downto 0) := "00000"; 
 begin
     -- Properly assign addresses in a process or concurrent statements
