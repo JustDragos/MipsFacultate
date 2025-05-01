@@ -86,7 +86,10 @@ end component;
   ext_imm: out std_logic_vector(31 downto 0);
   func: out std_logic_vector(5 downto 0);
   sa: out std_logic_vector(10 downto 6);
-  en: in std_logic
+  en: in std_logic;
+  wa: in std_logic_vector(4 downto 0);
+  rt: out std_logic_vector(4 downto 0);
+  rd: out std_logic_vector(4 downto 0)
    );
 end component;
 
@@ -119,8 +122,12 @@ component ExecutionElem is
   gtz: out std_logic;
   zero: out std_logic;
   alu_res: out std_logic_vector(31 downto 0);
-  branch_address: out std_logic_vector(31 downto 0)
-
+  branch_address: out std_logic_vector(31 downto 0);
+  rt: in std_logic_vector(4 downto 0);
+  rd: in std_logic_vector(4 downto 0);
+  reg_dst: in std_logic ;
+  rWA: out std_logic_vector(4 downto 0)
+  
    );
 end component;   
 
@@ -184,6 +191,62 @@ signal sa: std_logic_vector(4 downto 0) := "00000";
 
 signal alu_from_b_must_be_removed: std_logic_vector (31 downto 0) := X"00000000";
 
+signal rt: std_logic_vector(4 downto 0) := "00000";
+signal rd: std_logic_vector(4 downto 0) := "00000";
+signal rWa: std_logic_vector(4 downto 0) := "00000";
+
+
+-- for if/id
+signal IF_ID_pc_plus_4: std_logic_vector(31 downto 0) := X"00000000";
+signal IF_ID_instr: std_logic_vector(31 downto 0) := X"00000000";
+signal IF_ID_en: std_logic := '0';
+
+
+-- for id/ex
+signal ID_EX_rd1: std_logic_vector(31 downto 0) := X"00000000";
+signal ID_EX_rd2: std_logic_vector(31 downto 0) := X"00000000";
+signal ID_EX_sa: std_logic_vector(4 downto 0) := "00000";
+signal ID_EX_ext_imm: std_logic_vector(31 downto 0) := X"00000000";
+signal ID_Ex_func: std_logic_vector(5 downto 0) := "000000";
+signal ID_EX_RegDst: std_logic := '0';
+signal ID_EX_Branch: std_logic := '0';
+signal ID_EX_RegWr: std_logic := '0';
+signal ID_EX_Br_gtz: std_logic := '0';
+signal ID_EX_en: std_logic := '0';
+signal ID_EX_rt: std_logic_vector(4 downto 0) := "00000";
+signal ID_EX_rd: std_logic_vector(4 downto 0) := "00000";
+signal ID_EX_mem_to_reg: std_logic := '0';
+signal ID_EX_mem_write: std_logic := '0';
+signal ID_EX_alu_op: std_logic_vector(2 downto 0) := "000";
+signal ID_EX_alu_src: std_logic := '0';
+signal ID_EX_pc_plus_4: std_logic_vector(31 downto 0) := X"00000000";
+
+
+-- for EX/MEM
+signal EX_MEM_Branch: std_logic := '0';
+signal EX_MEM_RegWr: std_logic := '0';
+signal EX_MEM_Zero: std_logic := '0';
+signal EX_MEM_Wa: std_logic_vector(4 downto 0) := "00000";
+signal EX_MEM_rd2: std_logic_vector(31 downto 0) := X"00000000";
+signal EX_MEM_en: std_logic := '0';
+signal EX_MEM_mem_to_reg: std_logic := '0';
+signal EX_MEM_mem_write: std_logic := '0';
+signal EX_MEM_Br_gtz: std_logic := '0';
+signal EX_MEM_gtz: std_logic := '0';
+signal EX_MEM_Branch_address: std_logic_vector(31 downto 0) := X"00000000";
+signal EX_MEM_alu_res: std_logic_vector(31 downto 0) := X"00000000";
+
+-- for MEM/WB
+signal MEM_WB_RegWr: std_logic := '0';
+signal MEM_WB_alu_res_out: std_logic_vector(31 downto 0) := X"00000000";
+signal MEM_WB_mem_data: std_logic_vector(31 downto 0) := X"00000000";
+signal MEM_WB_wa: std_logic_vector(4 downto 0) := "00000";
+signal MEM_WB_en: std_logic := '0';
+signal MEM_WB_mem_to_reg: std_logic := '0';
+
+
+
+
 
 begin
    
@@ -200,11 +263,11 @@ begin
         clk => clk
     );
     
-    jmp_address <=  pc_plus_4(31 downto 28) & instr(25 downto 0) & "00";
+    jmp_address <=  IF_ID_pc_plus_4(31 downto 28) & IF_ID_instr(25 downto 0) & "00";
     -- rst here, led here, pcsrc in ifetc
     i_fetch: IFetch port map(
         jmp => jump,
-        branch_address => branch_address,
+        branch_address => EX_MEM_Branch_address,
         jmp_address => jmp_address,
         PCSrc => pc_src,
         rst => BT1,
@@ -212,6 +275,7 @@ begin
         clk => clk,
         pc_plus_4 => pc_plus_4,
         instr => instr
+        
     
     );
     
@@ -221,7 +285,7 @@ begin
     
     
     UC: UnitControl port map(
-        instr => instr(31 downto 26),
+        instr => IF_ID_instr(31 downto 26),
         br_gtz => br_gtz,
         reg_dst => reg_dst,
         ext_op => ext_op,
@@ -234,40 +298,46 @@ begin
         reg_write => reg_write
     );
     ID: InstructionDecodifier port map(
-        reg_write => reg_write,
+        reg_write => MEM_WB_RegWr,
         clk => clk,
-        instr => instr(25 downto 0),
+        instr => IF_ID_instr(25 downto 0),
         reg_dst => reg_dst,
         ext_op => ext_op,
-        wd => wd,
+        wd => wd, -- inafara componentei
         rd1 => rd1,
         rd2 => rd2,
         ext_imm => ext_imm,
         func => func,
         sa => sa,
-        en => mips_en
+        en => mips_en,
+        wa => MEM_WB_wa,
+        rt => rt,
+        rd => rd
     ); -- here we will put the mips_en
     
     EX: ExecutionElem port map(
-      rd1 => rd1,
-      rd2 => rd2,
-      ext_imm => ext_imm,
-      sa => sa,
-      func => func,
-      alu_op => alu_op,
-      pc_plus_4 => pc_plus_4,
+      rd1 => ID_EX_rd1,
+      rd2 => ID_EX_rd2,
+      ext_imm => ID_EX_ext_imm,
+      sa => ID_EX_sa,
+      func => ID_EX_func,
+      alu_op => ID_EX_alu_op,
+      pc_plus_4 => ID_EX_pc_plus_4,
       gtz => gtz,
       zero => zero,
       alu_res => alu_res,
       branch_address => branch_address,
-      alu_src => alu_src
-    
+      alu_src => ID_EX_alu_src,
+      rt => ID_EX_rt,
+      rd => ID_EX_rd,
+      rWA => rWA,
+      reg_dst => reg_dst
     );
     MEM_Elem: MEM port map(
-        MemWrite => mem_write,
-        ALUResIn => alu_res,
+        MemWrite => EX_MEM_mem_write,
+        ALUResIn => EX_MEM_alu_res,
         en => mips_en,
-        rd2 => rd2,
+        rd2 => EX_MEM_rd2,
         clk => clk,
         ALUResOut => alu_res_out,
         MemData => mem_data
@@ -275,8 +345,8 @@ begin
     );
    
     
-  wd <= alu_res_out when mem_to_reg = '0' else mem_data; 
-  pc_src <= (br_gtz and gtz) or (branch and zero);
+  wd <= MEM_WB_alu_res_out when MEM_WB_mem_to_reg = '0' else MEM_WB_mem_data; 
+  pc_src <= (EX_MEM_Br_gtz and EX_MEM_gtz) or (EX_MEM_Branch and EX_MEM_zero);
 
   process(sw)
         
@@ -307,6 +377,59 @@ begin
     end process;
     -- after debugging
     led <= "00000" & alu_op(2 downto 0) & reg_dst & ext_op & alu_src & branch & br_gtz & mem_write & mem_to_reg & reg_write;
+    
+    
+    -- for the pipeline architecture
+    
+    process(clk)
+        begin
+        -- reverse order, could be any order
+        -- as the assignment are only done
+        -- at the end. Temporary variables 
+        -- are used.
+        MEM_WB_mem_to_reg <= EX_MEM_mem_to_reg;
+        MEM_WB_RegWr <= EX_MEM_RegWr;
+        MEM_WB_alu_res_out <= alu_res_out;
+        MEM_WB_mem_data <= mem_data;
+        MEM_WB_wa <= EX_MEM_wa;
+        MEM_WB_mem_to_reg <= EX_MEM_mem_to_reg;
+        
+        
+        EX_MEM_Branch <= ID_EX_Branch;
+        EX_MEM_RegWr <= ID_EX_RegWr;
+        EX_MEM_Zero <= zero;
+        EX_MEM_Wa <= rWa;
+        EX_MEM_rd2 <= ID_EX_rd2;
+        EX_MEM_mem_to_reg <= ID_EX_mem_to_reg;
+        EX_MEM_mem_write <= ID_EX_mem_write;
+        EX_MEM_Br_gtz <= ID_EX_Br_gtz;
+        EX_MEM_gtz <= gtz;
+        EX_MEM_Branch_address <= branch_address; 
+        EX_MEM_alu_res <= alu_res; 
+
+        ID_EX_rd1 <= rd1;
+        ID_EX_rd2 <= rd2;
+        ID_EX_sa <= sa;
+        ID_EX_ext_imm <= ext_imm;
+        ID_Ex_func <= func;
+        ID_EX_RegDst <= reg_dst;
+        ID_EX_Branch <= branch; 
+        ID_EX_RegWr <= reg_write;
+        ID_EX_Br_gtz <= br_gtz;
+        ID_EX_rt <= rt;
+        ID_EX_rd <= rd;
+        ID_EX_mem_to_reg <= mem_to_reg;
+        ID_EX_mem_write <= mem_write;
+        ID_EX_alu_op <= alu_op;
+        ID_EX_alu_src <= alu_src;
+        ID_EX_pc_plus_4 <= pc_plus_4;
+        
+        IF_ID_instr <= instr;
+        IF_ID_pc_plus_4 <= pc_plus_4;
+        
+        
+        
+    end process;
     
     
     

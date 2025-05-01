@@ -45,7 +45,11 @@ entity ExecutionElem is
   gtz: out std_logic;
   zero: out std_logic;
   alu_res: out std_logic_vector(31 downto 0);
-  branch_address: out std_logic_vector(31 downto 0)
+  branch_address: out std_logic_vector(31 downto 0);
+  rt: in std_logic_vector(4 downto 0);
+  rd: in std_logic_vector(4 downto 0);
+  reg_dst: in std_logic ;
+  rWA: out std_logic_vector(4 downto 0)
 
    );
 end ExecutionElem;
@@ -128,5 +132,6 @@ begin
     gtz <= not (is_zero) and not(rez(31)); 
     branch_address <= pc_plus_4 + (ext_imm(29 downto 0) & "00");
     
+    rWA <= rt when reg_dst = '0' else rd;
     
 end Behavioral;

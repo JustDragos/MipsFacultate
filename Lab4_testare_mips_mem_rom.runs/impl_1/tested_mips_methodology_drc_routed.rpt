@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Tue Apr 29 21:50:28 2025
+| Date         : Fri May  2 00:01:46 2025
 | Host         : Dragos running 64-bit major release  (build 9200)
 | Command      : report_methodology -file tested_mips_methodology_drc_routed.rpt -pb tested_mips_methodology_drc_routed.pb -rpx tested_mips_methodology_drc_routed.rpx
 | Design       : tested_mips
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 170
+             Violations found: 190
 +-----------+------------------+--------------------------------+------------+
 | Rule      | Severity         | Description                    | Violations |
 +-----------+------------------+--------------------------------+------------+
-| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 167        |
-| TIMING-20 | Warning          | Non-clocked latch              | 2          |
+| TIMING-17 | Critical Warning | Non-clocked sequential cell    | 188        |
+| TIMING-20 | Warning          | Non-clocked latch              | 1          |
 | LATCH-1   | Advisory         | Existing latches in the design | 1          |
 +-----------+------------------+--------------------------------+------------+
 
@@ -786,85 +786,190 @@ Related violations: <none>
 
 TIMING-17#151 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[0]/C is not reached by a timing clock
+The clock pin mp/Q1_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#152 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[10]/C is not reached by a timing clock
+The clock pin mp/Q2_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#153 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[11]/C is not reached by a timing clock
+The clock pin mp/Q3_reg/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#154 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[12]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[0]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#155 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[13]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[10]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#156 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[14]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[11]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#157 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[15]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[12]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#158 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[16]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[13]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#159 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[1]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[14]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#160 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[2]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[15]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#161 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[3]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[16]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#162 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[4]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[17]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#163 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[5]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[1]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#164 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[6]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[2]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#165 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[7]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[3]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#166 Critical Warning
 Non-clocked sequential cell  
-The clock pin sd/cnt_reg[8]/C is not reached by a timing clock
+The clock pin mp/cnt_int_reg[4]/C is not reached by a timing clock
 Related violations: <none>
 
 TIMING-17#167 Critical Warning
+Non-clocked sequential cell  
+The clock pin mp/cnt_int_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#168 Critical Warning
+Non-clocked sequential cell  
+The clock pin mp/cnt_int_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#169 Critical Warning
+Non-clocked sequential cell  
+The clock pin mp/cnt_int_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#170 Critical Warning
+Non-clocked sequential cell  
+The clock pin mp/cnt_int_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#171 Critical Warning
+Non-clocked sequential cell  
+The clock pin mp/cnt_int_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#172 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#173 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#174 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#175 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#176 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#177 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#178 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#179 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[16]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#180 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#181 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#182 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#183 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#184 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#185 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#186 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#187 Critical Warning
+Non-clocked sequential cell  
+The clock pin sd/cnt_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#188 Critical Warning
 Non-clocked sequential cell  
 The clock pin sd/cnt_reg[9]/C is not reached by a timing clock
 Related violations: <none>
@@ -874,14 +979,9 @@ Non-clocked latch
 The latch EX/is_left_reg cannot be properly analyzed as its control pin EX/is_left_reg/G is not reached by a timing clock
 Related violations: <none>
 
-TIMING-20#2 Warning
-Non-clocked latch  
-The latch EX/is_var_reg cannot be properly analyzed as its control pin EX/is_var_reg/G is not reached by a timing clock
-Related violations: <none>
-
 LATCH-1#1 Advisory
 Existing latches in the design  
-There are 2 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
+There are 1 latches found in the design. Inferred latches are often the result of HDL coding mistakes, such as incomplete if or case statements.
 Related violations: <none>
 
 

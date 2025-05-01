@@ -47,7 +47,11 @@ entity instructionDecodifier is
   ext_imm: out std_logic_vector(31 downto 0);
   func: out std_logic_vector(5 downto 0);
   sa: out std_logic_vector(4 downto 0);
-  en: in std_logic
+  en: in std_logic;
+  wa: in std_logic_vector(4 downto 0);
+  rt: out std_logic_vector(4 downto 0);
+  rd: out std_logic_vector(4 downto 0)
+  
    );
 end instructionDecodifier;
 
@@ -57,17 +61,18 @@ architecture Behavioral of instructionDecodifier is
     1 => X"00000009",
     
     others => X"00000000");
-    signal RA1, RA2, WA : std_logic_vector(4 downto 0) := "00000"; 
+    signal RA1, RA2: std_logic_vector(4 downto 0) := "00000"; 
 begin
     -- Properly assign addresses in a process or concurrent statements
     RA1 <= instr(25 downto 21);  -- Concurrent assignment
     RA2 <= instr(20 downto 16);  -- Concurrent assignment
     
-    WA <= instr(20 downto 16) when reg_dst = '0' else instr(15 downto 11);
+    rt <= instr(20 downto 16);
+    rd <= instr(15 downto 11);
     
     process(clk)
     begin
-        if rising_edge(clk) then
+        if falling_edge (clk) then
             if en = '1' and reg_write = '1' then
                 mem_rom(to_integer(unsigned(WA))) <= WD;
             end if;

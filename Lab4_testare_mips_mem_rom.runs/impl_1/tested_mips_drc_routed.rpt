@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Tue Apr 29 21:50:27 2025
+| Date         : Fri May  2 00:01:46 2025
 | Host         : Dragos running 64-bit major release  (build 9200)
 | Command      : report_drc -file tested_mips_drc_routed.rpt -pb tested_mips_drc_routed.pb -rpx tested_mips_drc_routed.rpx
 | Design       : tested_mips
@@ -24,12 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 3
+             Violations found: 2
 +----------+----------+-----------------------------------------------------+------------+
 | Rule     | Severity | Description                                         | Violations |
 +----------+----------+-----------------------------------------------------+------------+
 | CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-| PDRC-153 | Warning  | Gated clock check                                   | 2          |
+| PDRC-153 | Warning  | Gated clock check                                   | 1          |
 +----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -49,12 +49,7 @@ Related violations: <none>
 
 PDRC-153#1 Warning
 Gated clock check  
-Net i_fetch/PC_reg[3]_33 is a gated clock net sourced by a combinational pin i_fetch/is_var_reg_i_1/O, cell i_fetch/is_var_reg_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-Related violations: <none>
-
-PDRC-153#2 Warning
-Gated clock check  
-Net i_fetch/PC_reg[4]_3 is a gated clock net sourced by a combinational pin i_fetch/is_left_reg_i_2/O, cell i_fetch/is_left_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Net i_fetch/PC_reg[6]_3 is a gated clock net sourced by a combinational pin i_fetch/is_left_reg_i_2/O, cell i_fetch/is_left_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 
