@@ -129,6 +129,7 @@ set rc [catch {
   create_msg_db write_bitstream.pb
   set_param checkpoint.writeSynthRtdsInDcp 1
   set_param chipscope.maxJobs 3
+  set_param synth.incrementalSynthesisCache C:/Users/drago/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-28980-Dragos/incrSyn
   set_param runs.launchOptions { -jobs 6  }
   open_checkpoint tested_mips_routed.dcp
   set_property webtalk.parent_dir {D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.cache/wt} [current_project]

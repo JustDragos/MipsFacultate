@@ -2,3 +2,6 @@ Running: xsim.dir/simulate_mips_func_impl/xsimk.exe -simmode gui -wdb simulate_m
 Design successfully loaded
 Design Loading Memory Usage: 11800 KB (Peak: 11800 KB)
 Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 13848 KB (Peak: 13848 KB)
+Simulation CPU Usage: 108 ms

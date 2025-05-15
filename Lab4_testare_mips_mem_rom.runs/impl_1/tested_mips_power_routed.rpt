@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date             : Fri May  2 00:01:47 2025
+| Date             : Thu May 15 18:42:57 2025
 | Host             : Dragos running 64-bit major release  (build 9200)
 | Command          : report_power -file tested_mips_power_routed.rpt -pb tested_mips_power_summary_routed.pb -rpx tested_mips_power_routed.rpx
 | Design           : tested_mips
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+----------------------------------+
-| Total On-Chip Power (W)  | 29.889 (Junction temp exceeded!) |
+| Total On-Chip Power (W)  | 34.129 (Junction temp exceeded!) |
 | Design Power Budget (W)  | Unspecified*                     |
 | Power Budget Margin (W)  | NA                               |
-| Dynamic (W)              | 29.092                           |
+| Dynamic (W)              | 33.332                           |
 | Device Static (W)        | 0.797                            |
 | Effective TJA (C/W)      | 4.6                              |
 | Max Ambient (C)          | 0.0                              |
@@ -52,17 +52,17 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic              |     4.409 |      945 |       --- |             --- |
-|   LUT as Logic           |     3.683 |      628 |     63400 |            0.99 |
-|   LUT as Distributed RAM |     0.454 |       76 |     19000 |            0.40 |
-|   CARRY4                 |     0.243 |       46 |     15850 |            0.29 |
-|   Register               |     0.024 |       69 |    126800 |            0.05 |
+| Slice Logic              |     5.771 |     1091 |       --- |             --- |
+|   LUT as Logic           |     5.004 |      762 |     63400 |            1.20 |
+|   LUT as Distributed RAM |     0.521 |       76 |     19000 |            0.40 |
+|   CARRY4                 |     0.219 |       46 |     15850 |            0.29 |
+|   Register               |     0.021 |       70 |    126800 |            0.06 |
 |   BUFG                   |     0.006 |        1 |        32 |            3.13 |
 |   Others                 |     0.000 |       11 |       --- |             --- |
-| Signals                  |     5.074 |      876 |       --- |             --- |
-| I/O                      |    19.609 |       37 |       210 |           17.62 |
+| Signals                  |     6.635 |     1027 |       --- |             --- |
+| I/O                      |    20.926 |       37 |       210 |           17.62 |
 | Static Power             |     0.797 |          |           |                 |
-| Total                    |    29.889 |          |           |                 |
+| Total                    |    34.129 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |    10.066 |       9.503 |      0.563 |       NA    | Unspecified | NA         |
-| Vccaux    |       1.800 |     0.811 |       0.718 |      0.093 |       NA    | Unspecified | NA         |
-| Vcco33    |       3.300 |     5.548 |       5.544 |      0.004 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |    12.989 |      12.426 |      0.563 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.859 |       0.766 |      0.093 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     5.921 |       5.917 |      0.004 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
@@ -139,59 +139,59 @@ Table of Contents
 +----------------------------------+-----------+
 | Name                             | Power (W) |
 +----------------------------------+-----------+
-| tested_mips                      |    29.092 |
-|   EX                             |     0.604 |
-|   ID                             |     1.679 |
-|     mem_rom_reg_r1_0_31_0_5      |     0.111 |
-|     mem_rom_reg_r1_0_31_12_17    |     0.105 |
-|     mem_rom_reg_r1_0_31_18_23    |     0.113 |
-|     mem_rom_reg_r1_0_31_24_29    |     0.121 |
-|     mem_rom_reg_r1_0_31_30_31    |     0.024 |
-|     mem_rom_reg_r1_0_31_30_31__0 |     0.019 |
-|     mem_rom_reg_r1_0_31_6_11     |     0.115 |
-|     mem_rom_reg_r2_0_31_0_5      |     0.077 |
-|     mem_rom_reg_r2_0_31_12_17    |     0.088 |
-|     mem_rom_reg_r2_0_31_18_23    |     0.116 |
-|     mem_rom_reg_r2_0_31_24_29    |     0.150 |
-|     mem_rom_reg_r2_0_31_30_31    |     0.034 |
-|     mem_rom_reg_r2_0_31_30_31__0 |     0.026 |
-|     mem_rom_reg_r2_0_31_6_11     |     0.102 |
-|   MEM_Elem                       |     0.301 |
-|     mem_matrix_reg_0_63_0_0      |     0.008 |
-|     mem_matrix_reg_0_63_10_10    |     0.010 |
+| tested_mips                      |    33.332 |
+|   EX                             |     0.805 |
+|   ID                             |     3.087 |
+|     mem_rom_reg_r1_0_31_0_5      |     0.336 |
+|     mem_rom_reg_r1_0_31_12_17    |     0.144 |
+|     mem_rom_reg_r1_0_31_18_23    |     0.158 |
+|     mem_rom_reg_r1_0_31_24_29    |     0.173 |
+|     mem_rom_reg_r1_0_31_30_31    |     0.034 |
+|     mem_rom_reg_r1_0_31_30_31__0 |     0.023 |
+|     mem_rom_reg_r1_0_31_6_11     |     0.172 |
+|     mem_rom_reg_r2_0_31_0_5      |     0.075 |
+|     mem_rom_reg_r2_0_31_12_17    |     0.137 |
+|     mem_rom_reg_r2_0_31_18_23    |     0.154 |
+|     mem_rom_reg_r2_0_31_24_29    |     0.171 |
+|     mem_rom_reg_r2_0_31_30_31    |     0.036 |
+|     mem_rom_reg_r2_0_31_30_31__0 |     0.035 |
+|     mem_rom_reg_r2_0_31_6_11     |     0.131 |
+|   MEM_Elem                       |     0.317 |
+|     mem_matrix_reg_0_63_0_0      |     0.005 |
+|     mem_matrix_reg_0_63_10_10    |     0.012 |
 |     mem_matrix_reg_0_63_11_11    |     0.008 |
 |     mem_matrix_reg_0_63_12_12    |     0.009 |
-|     mem_matrix_reg_0_63_13_13    |     0.011 |
+|     mem_matrix_reg_0_63_13_13    |     0.007 |
 |     mem_matrix_reg_0_63_14_14    |     0.007 |
-|     mem_matrix_reg_0_63_15_15    |     0.009 |
-|     mem_matrix_reg_0_63_16_16    |     0.005 |
-|     mem_matrix_reg_0_63_17_17    |     0.006 |
+|     mem_matrix_reg_0_63_15_15    |     0.008 |
+|     mem_matrix_reg_0_63_16_16    |     0.008 |
+|     mem_matrix_reg_0_63_17_17    |     0.008 |
 |     mem_matrix_reg_0_63_18_18    |     0.008 |
-|     mem_matrix_reg_0_63_19_19    |     0.009 |
-|     mem_matrix_reg_0_63_1_1      |     0.008 |
-|     mem_matrix_reg_0_63_20_20    |     0.008 |
-|     mem_matrix_reg_0_63_21_21    |     0.009 |
-|     mem_matrix_reg_0_63_22_22    |     0.008 |
-|     mem_matrix_reg_0_63_23_23    |     0.007 |
-|     mem_matrix_reg_0_63_24_24    |     0.007 |
-|     mem_matrix_reg_0_63_25_25    |     0.007 |
-|     mem_matrix_reg_0_63_26_26    |     0.009 |
+|     mem_matrix_reg_0_63_19_19    |     0.010 |
+|     mem_matrix_reg_0_63_1_1      |     0.006 |
+|     mem_matrix_reg_0_63_20_20    |     0.010 |
+|     mem_matrix_reg_0_63_21_21    |     0.011 |
+|     mem_matrix_reg_0_63_22_22    |     0.011 |
+|     mem_matrix_reg_0_63_23_23    |     0.008 |
+|     mem_matrix_reg_0_63_24_24    |     0.008 |
+|     mem_matrix_reg_0_63_25_25    |     0.009 |
+|     mem_matrix_reg_0_63_26_26    |     0.011 |
 |     mem_matrix_reg_0_63_27_27    |     0.009 |
-|     mem_matrix_reg_0_63_28_28    |     0.007 |
-|     mem_matrix_reg_0_63_29_29    |     0.009 |
+|     mem_matrix_reg_0_63_28_28    |     0.009 |
+|     mem_matrix_reg_0_63_29_29    |     0.014 |
 |     mem_matrix_reg_0_63_2_2      |     0.008 |
-|     mem_matrix_reg_0_63_30_30    |     0.008 |
-|     mem_matrix_reg_0_63_31_31    |     0.006 |
-|     mem_matrix_reg_0_63_3_3      |     0.009 |
+|     mem_matrix_reg_0_63_30_30    |     0.010 |
+|     mem_matrix_reg_0_63_31_31    |     0.008 |
+|     mem_matrix_reg_0_63_3_3      |     0.010 |
 |     mem_matrix_reg_0_63_4_4      |     0.009 |
-|     mem_matrix_reg_0_63_5_5      |     0.005 |
-|     mem_matrix_reg_0_63_6_6      |     0.007 |
+|     mem_matrix_reg_0_63_5_5      |     0.008 |
+|     mem_matrix_reg_0_63_6_6      |     0.009 |
 |     mem_matrix_reg_0_63_7_7      |     0.010 |
 |     mem_matrix_reg_0_63_8_8      |     0.008 |
-|     mem_matrix_reg_0_63_9_9      |     0.010 |
-|   i_fetch                        |     5.972 |
-|   mp                             |     0.095 |
-|   sd                             |     0.754 |
+|     mem_matrix_reg_0_63_9_9      |     0.008 |
+|   i_fetch                        |     7.230 |
+|   mp                             |     0.084 |
+|   sd                             |     0.793 |
 +----------------------------------+-----------+
 
 

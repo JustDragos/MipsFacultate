@@ -71,7 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param checkpoint.writeSynthRtdsInDcp 1
-set_param chipscope.maxJobs 3
+set_param synth.incrementalSynthesisCache C:/Users/drago/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-28980-Dragos/incrSyn
 set_msg_config -id {Synth 8-256} -limit 10000
 set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -id {Synth 8-614}  -string {{WARNING: [Synth 8-614] signal 'reg_write' is read in the process but is not in the sensitivity list [D:/Facultate/An_II/Semestrul II/AC/Lab4_testare_mips_mem_rom/Lab4_testare_mips_mem_rom.srcs/sources_1/new/instructionDecodifier.vhd:63]}}  -suppress 
